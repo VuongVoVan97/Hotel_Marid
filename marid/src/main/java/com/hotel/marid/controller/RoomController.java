@@ -18,7 +18,7 @@ public class RoomController {
     @Autowired
     private RoomService roomService;
 
-    @GetMapping("{id}")
+    @GetMapping("/room/{id}")
     public ResponseEntity<Room> findById(@PathVariable Long id) throws ChangeSetPersister.NotFoundException {
         Room room = roomService.findById(id);
         return ResponseEntity.status(HttpStatus.OK).body(room);
