@@ -87,6 +87,8 @@
 					<url>jdbc:mysql://localhost:3306/marid_hotel?autoreconnect=true</url>
 					<user>root</user>
 					<password>123456aA@$</password>
+					<validateMigrationNaming>true</validateMigrationNaming>
+					<baselineOnMigrate>true</baselineOnMigrate>
 				</configuration>
 			</plugin>
 
