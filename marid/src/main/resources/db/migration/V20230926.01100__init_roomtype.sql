@@ -1,0 +1,9 @@
+USE marid_hotel;
+DROP TABLE IF EXISTS room_type;
+
+
+CREATE TABLE ROOM_TYPE (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT
+  , name VARCHAR(255) NOT NULL
+  , unit_price DOUBLE NOT NULL
+);
