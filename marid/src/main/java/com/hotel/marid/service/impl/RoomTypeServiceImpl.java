@@ -6,6 +6,7 @@ import com.hotel.marid.service.RoomTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,16 +26,19 @@ public class RoomTypeServiceImpl implements RoomTypeService {
     }
 
     @Override
+    @Transactional
     public RoomType create(RoomType roomType) {
         return roomTypeRepository.save(roomType);
     }
 
     @Override
+    @Transactional
     public RoomType update(RoomType roomType) {
         return roomTypeRepository.save(roomType);
     }
 
     @Override
+    @Transactional
     public void delete(long id) {
         roomTypeRepository.deleteById(id);
     }

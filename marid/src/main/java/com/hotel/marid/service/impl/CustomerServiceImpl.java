@@ -6,6 +6,7 @@ import com.hotel.marid.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,16 +26,19 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    @Transactional
     public Customer create(Customer customer) {
         return customerRepository.save(customer);
     }
 
     @Override
+    @Transactional
     public Customer update(Customer customer) {
         return customerRepository.save(customer);
     }
 
     @Override
+    @Transactional
     public void delete(long id) {
         customerRepository.deleteById(id);
     }

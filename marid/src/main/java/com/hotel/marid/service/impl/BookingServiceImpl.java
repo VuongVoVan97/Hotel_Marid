@@ -6,6 +6,7 @@ import com.hotel.marid.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,16 +26,19 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
+    @Transactional
     public Booking create(Booking booking) {
         return bookingRepository.save(booking);
     }
 
     @Override
+    @Transactional
     public Booking update(Booking booking) {
         return bookingRepository.save(booking);
     }
 
     @Override
+    @Transactional
     public void delete(long id) {
         bookingRepository.deleteById(id);
     }

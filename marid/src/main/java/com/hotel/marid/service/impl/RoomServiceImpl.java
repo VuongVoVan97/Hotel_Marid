@@ -6,6 +6,7 @@ import com.hotel.marid.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -26,19 +27,21 @@ public class RoomServiceImpl implements RoomService {
                 .orElseThrow(ChangeSetPersister.NotFoundException::new);
     }
 
-
     @Override
+    @Transactional
     public Room create(Room room) {
         return roomRepository.save(room);
 
     }
 
     @Override
+    @Transactional
     public Room update(Room room) {
         return roomRepository.save(room);
     }
 
     @Override
+    @Transactional
     public void delete(long id) {
         roomRepository.deleteById(id);
     }
