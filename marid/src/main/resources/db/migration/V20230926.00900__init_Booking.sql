@@ -7,5 +7,5 @@ CREATE TABLE BOOKING (
   , date_in DATETIME NOT NULL
   , date_out DATETIME NOT NULL
   , customer_id BIGINT
-  ,  FOREIGN KEY (customer_id) REFERENCES CUSTOMER(id)
-);
+--  ,  FOREIGN KEY (customer_id) REFERENCES CUSTOMER(id)
+)ENGINE = INNODB;

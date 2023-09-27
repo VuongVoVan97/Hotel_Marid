@@ -9,7 +9,7 @@ CREATE TABLE ROOM (
   , customer_id BIGINT
   , booking_id BIGINT
   , room_type_id BIGINT
-  ,  FOREIGN KEY (customer_id) REFERENCES CUSTOMER(id)
-  ,  FOREIGN KEY (booking_id) REFERENCES BOOKING(id)
-  ,  FOREIGN KEY (room_type_id) REFERENCES ROOM_TYPE(id)
-);
+--  ,  FOREIGN KEY (customer_id) REFERENCES CUSTOMER(id)
+--  ,  FOREIGN KEY (booking_id) REFERENCES BOOKING(id)
+--  ,  FOREIGN KEY (room_type_id) REFERENCES ROOM_TYPE(id)
+)ENGINE = INNODB;

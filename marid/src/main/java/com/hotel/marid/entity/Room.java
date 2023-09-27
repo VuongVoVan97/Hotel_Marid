@@ -9,21 +9,21 @@ import lombok.Data;
 @Table(name = "Room")
 @Data
 public class Room extends BaseEntity {
-
+    @Column(name = "room_number")
     private String roomNumber;
 
     @Column(name = "available")
     private Boolean isAvailable;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "booking_id", nullable = false)
     private Booking booking;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "room_type_id", nullable = false)
     private RoomType roomType;
 }

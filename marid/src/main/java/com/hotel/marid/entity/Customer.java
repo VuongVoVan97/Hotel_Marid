@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 
-
 import java.util.Set;
 
 @Entity
@@ -15,13 +14,14 @@ import java.util.Set;
 public class Customer extends BaseEntity {
     private String name;
 
+    @Column(name = "phone_number")
     private String phoneNumber;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Booking> bookingSet;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Room> roomSet;
 

@@ -15,16 +15,18 @@ import java.util.Set;
 public class Booking extends BaseEntity {
 
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "date_in")
     private Date dateIn;
 
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "date_out")
     private Date dateOut;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "id")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "booking")
     @JsonIgnore
     private Set<Room> roomSet;
 

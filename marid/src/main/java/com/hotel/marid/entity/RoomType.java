@@ -13,9 +13,11 @@ import java.util.Set;
 @Data
 public class RoomType extends BaseEntity {
     private String name;
+
+    @Column(name = "unit_price")
     private double unitPrice;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "roomType", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Room> roomSet;
 }
