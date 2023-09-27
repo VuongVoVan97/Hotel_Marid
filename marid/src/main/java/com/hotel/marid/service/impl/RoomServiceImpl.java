@@ -6,7 +6,8 @@ import com.hotel.marid.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
+
+import java.util.List;
 
 @Service
 public class RoomServiceImpl implements RoomService {
@@ -15,9 +16,30 @@ public class RoomServiceImpl implements RoomService {
     private RoomRepository roomRepository;
 
     @Override
-    public Room findById(Long id) throws ChangeSetPersister.NotFoundException {
-        Room room = roomRepository.findById(id)
-                .orElseThrow(() -> new ChangeSetPersister.NotFoundException());
-        return room;
+    public List<Room> retrieveAll() {
+        return roomRepository.findAll();
+    }
+
+    @Override
+    public Room retrieveById(long id) throws ChangeSetPersister.NotFoundException {
+        return roomRepository.findById(id)
+                .orElseThrow(ChangeSetPersister.NotFoundException::new);
+    }
+
+
+    @Override
+    public Room create(Room room) {
+        return roomRepository.save(room);
+
+    }
+
+    @Override
+    public Room update(Room room) {
+        return roomRepository.save(room);
+    }
+
+    @Override
+    public void delete(long id) {
+        roomRepository.deleteById(id);
     }
 }

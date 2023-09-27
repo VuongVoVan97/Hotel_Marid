@@ -1,17 +1,20 @@
 package com.hotel.marid.service;
 
 import com.hotel.marid.entity.RoomType;
+import org.springframework.data.crossstore.ChangeSetPersister;
 
 import java.util.List;
 
 public interface RoomTypeService {
 
-    Boolean create(RoomType roomType);
 
     List<RoomType> retrieveAll();
-    List<RoomType> retrieveByUnitPriceBelow(double unitPrice);
 
-    Boolean update(RoomType roomType);
+    RoomType retrieveById(long id) throws ChangeSetPersister.NotFoundException;
 
-    Boolean delete(RoomType roomType);
+    RoomType create(RoomType roomType);
+
+    RoomType update(RoomType roomType);
+
+    void delete(long id);
 }

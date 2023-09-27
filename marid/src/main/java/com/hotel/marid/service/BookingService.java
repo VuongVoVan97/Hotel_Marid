@@ -1,23 +1,20 @@
 package com.hotel.marid.service;
 
 import com.hotel.marid.entity.Booking;
-import com.hotel.marid.entity.Customer;
-import com.hotel.marid.entity.Room;
+import org.springframework.data.crossstore.ChangeSetPersister;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 public interface BookingService {
 
-   Boolean create(Customer customer, Date dateIn, Date dateOut, Set<Room>roomSet);
+    List<Booking> retrieveAll();
 
-   List<Booking> retrieveAll();
-    List<Booking> retrieveByCustomer(Customer customer);
-    List<Booking> retrieveByCustomer(String phoneNumber);
+    Booking retrieveById(long id)throws ChangeSetPersister.NotFoundException;
 
-    Boolean update(Customer customer);
+    Booking create(Booking booking);
 
-    Boolean delete(Customer customer);
+    Booking update(Booking booking);
+
+    void delete(long id);
 
 }

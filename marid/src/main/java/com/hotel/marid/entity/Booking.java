@@ -1,5 +1,6 @@
 package com.hotel.marid.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hotel.marid.config.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -24,6 +25,9 @@ public class Booking extends BaseEntity {
     private Customer customer;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "id")
+    @JsonIgnore
     private Set<Room> roomSet;
+
+
 
 }
